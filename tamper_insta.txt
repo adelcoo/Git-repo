@@ -1,0 +1,47 @@
+// ==UserScript==
+// @name         New Userscript
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://www.instagram.com/***/
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+var evalTable, heartClick, click_close, num=0;
+      if (document.readyState == "complete" || document.readyState == "loaded" || document.readyState == "interactive") {
+        console.log("Already Loaded");
+         setTimeout(f, 5000);
+       };
+function f(){
+      console.log('Tamper is working');
+      evalTable = document.getElementsByClassName('_9AhH0');
+      console.log(evalTable, evalTable.length);
+      setInterval(work, 4000, evalTable);
+}
+function work(evalTable){
+          clickOpen(evalTable);
+          setTimeout(clickLike, 1000);
+          setTimeout(clickClose, 2000);}
+
+function clickOpen(eval_table){
+    console.log("eval_table="+eval_table);
+    eval_table[num].click();
+    num+=1;}
+
+function clickLike(){
+    if(!document.querySelector('[aria-label="Unlike"]')){
+     heartClick = document.querySelector('[aria-label="Like"]');
+     console.log("heartClick="+heartClick);
+     heartClick.click();}
+}
+function clickClose(){
+     click_close = document.querySelector('.ckWGn');
+    console.log("click_close="+click_close);
+     click_close.click();}
+
+
+
+})();
